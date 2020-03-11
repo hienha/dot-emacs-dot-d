@@ -5,50 +5,18 @@
 ;; You may delete these explanatory comments.
 ;;
 ;; Customize settings.
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (package-initialize)
-  (setq package-archives '(("gnu-tuna"    .  "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-			   ("melpa-tuna"  .  "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))))
+(package-initialize)
 
-(require 'cl)
+(add-to-list 'load-path "~/.emacs.d/lisp")
+(require 'init-packages)
 
-;; add whatever package you want here
-(defvar vincent/packages '(
-			   company
-			   dracula-theme
-			   monokai-theme
-			   hungry-delete
-			   counsel
-			   swiper
-			   smartparens
-			   exec-path-from-shell
-			   js2-mode
-			   nodejs-repl
-			   ) "Default packages")
-(setq package-selected-packages vincent/packages)
+;; inhibit ring bell
+(setq ring-bell-function 'ignore)
 
-(defun vincent/packages-installed-p ()
-  (loop for pkg in vincent/packages
-	when (not (package-installed-p pkg)) do (return nil)
-	finally (return t)))
-
-(unless (vincent/packages-installed-p)
-  (message "%s" "Refreshing package database...")
-  (package-refresh-contents)
-  (dolist (pkg vincent/packages)
-    (when (not (package-installed-p pkg))
-      (package-install pkg))))
+;; Auto-load file
+(global-auto-revert-mode t)
 
 
-;; hungry-delete mode
-(require 'hungry-delete)
-(global-hungry-delete-mode)
-
-
-(ivy-mode t)
-(setq ivy-use-virtual-buffers t)
-(setq enable-recursive-minibuffers t)
 
 
 (global-set-key "\C-s" 'swiper)
@@ -68,26 +36,23 @@
 (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
 
-(require 'smartparens-config)
-(smartparens-global-mode t)
 
 
-;; Configure js2-mode for js files.
-(setq auto-mode-alist
-      (append
-       '(("\\.js\\'" . js2-mode))
-       auto-mode-alist))
 
-;; if your OS is MacOXX, you need add below settings.
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
+
+
+;; abbrev-mode
+(abbrev-mode t)
+(define-abbrev-table 'global-abbrev-table '(
+					    ;; signature
+					    ("vct" "vincent")
+					    ;; emacs regex
+					    ))
 
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
-
 (global-linum-mode t)
-
 (setq inhibit-splash-screen t)
 
 
@@ -95,12 +60,9 @@
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 (global-set-key (kbd "<f2>") 'open-my-init-file)
-
-
-(global-company-mode t)
-
 (setq-default cursor-type 'bar)
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 
 (require 'org)
 (setq org-src-fontify-natively t)
@@ -131,7 +93,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(company-idle-delay 0.08)
- '(company-minimum-prefix-length 1)
+ '(company-minimum-prefix-length 2)
+ '(exec-path-from-shell-arguments (quote ("-l")))
+ '(exec-path-from-shell-check-startup-files nil)
  '(package-selected-packages (quote (company))))
 
 (custom-set-faces
