@@ -54,7 +54,6 @@
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
 
-(require 'smartparens-config)
 (smartparens-global-mode t)
 
 ;; Configure js2-mode for js files.

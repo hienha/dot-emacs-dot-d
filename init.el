@@ -8,13 +8,23 @@
 (package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/lisp")
+
 (require 'init-packages)
+(require 'init-ui)
+
+
 
 ;; inhibit ring bell
 (setq ring-bell-function 'ignore)
 
 ;; Auto-load file
 (global-auto-revert-mode t)
+
+
+
+(global-linum-mode t)
+
+
 
 
 
@@ -49,18 +59,13 @@
 					    ;; emacs regex
 					    ))
 
-(tool-bar-mode 0)
-(menu-bar-mode 0)
-(scroll-bar-mode 0)
-(global-linum-mode t)
-(setq inhibit-splash-screen t)
+
 
 
 (defun open-my-init-file()
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 (global-set-key (kbd "<f2>") 'open-my-init-file)
-(setq-default cursor-type 'bar)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
@@ -74,13 +79,11 @@
 
 (delete-selection-mode t)
 
-(setq initial-frame-alist (quote ((fullscreen . maximized))))
+
 
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
-(global-hl-line-mode t)
 
-(load-theme 'dracula t)
 
 ;; org-agenda
 (setq org-agenda-files '("~/org"))
