@@ -60,5 +60,26 @@
 					 try-expand-line
 					 try-complete-lisp-symbol-partially
 					 try-complete-lisp-symbol))
+
+;; dired mode
+;; reuse current buffer by pressing "a"
+(put 'dired-find-alternate-file 'disabled nil)
+
+;; always delete, copy recursive
+(setq dired-recursive-deletes 'always)
+(setq dired-recursive-copies 'always)
+
+;; If non-nil, Dired tries to guess a default target directory.
+;; This means: if there is a Dired buffer displayed in the next
+;; window, use its current directory, instead of this Dired buffer’s
+;; current directory.
+(setq dired-dwim-target t)
+
+;; less typing when Emacs ask you yes or notice
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; allow you to jump to current directory with dired mode
+(require 'dired-x)
+
 (provide 'init-better-defaults)
 

@@ -37,5 +37,11 @@
 ;; hippie expakd is dabbrev expand in steroids
 (global-set-key (kbd "s-/") 'hippie-expand)
 
+;; dired: delay load
+(eval-after-load "dired"
+  '(progn
+     (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)))
+
+
 (provide 'init-keybindings)
 
