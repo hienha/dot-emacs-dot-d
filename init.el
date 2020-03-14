@@ -5,17 +5,7 @@
 ;; You may delete these explanatory comments.
 ;;
 ;; Customize settings.
-(package-initialize)
 
-(add-to-list 'load-path "~/.emacs.d/lisp")
-
-(require 'init-func)
-(require 'init-packages)
-(require 'init-ui)
-(require 'init-better-defaults)
-(require 'init-org)
-(require 'init-keybindings)
-
-(setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
-(load-file custom-file)
-
+(require 'org-install)
+(require 'ob-tangle)
+(org-babel-load-file (expand-file-name "vincent.org" user-emacs-directory))
