@@ -42,6 +42,14 @@
   '(progn
      (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)))
 
+;; web-mode
+(global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
+
+;; Occur
+(global-set-key (kbd "M-s o") 'occur-dwim)
+
+;; expand-region
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 (provide 'init-keybindings)
 

@@ -7,7 +7,9 @@
  '(company-minimum-prefix-length 1)
  '(exec-path-from-shell-arguments (quote ("-l")))
  '(exec-path-from-shell-check-startup-files nil)
- '(package-selected-packages (quote (company))))
+ '(package-selected-packages (quote (company)))
+ '(popwin:popup-window-position (quote right))
+ '(popwin:popup-window-width 80))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

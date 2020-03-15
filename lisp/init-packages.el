@@ -19,6 +19,9 @@
 			   nodejs-repl
 			   popwin
 			   reveal-in-osx-finder
+			   web-mode
+			   js2-refactor
+			   expand-region
 			   ) "Default packages")
 (setq package-selected-packages vincent/packages)
 
@@ -63,6 +66,25 @@
 (setq auto-mode-alist
       (append
        '(("\\.js\\'" . js2-mode))
+       '(("\\.html\\'" . web-mode))
        auto-mode-alist))
+
+
+;; Do What I Mean
+(defun occur-dwim ()
+  "Call `occur' with a sane default."
+  (interactive)
+  (push (if (region-active-p)
+	    (buffer-substring-no-properties
+	     (region-beginning)
+	     (region-end))
+	  (let ((sym (thing-at-point 'symbol)))
+	    (when (stringp sym)
+	      (regexp-quote sym))))
+	regexp-history)
+  (call-interactively 'occur))
+
+;; expand-region
+(require 'expand-region)
 
 (provide 'init-packages)
