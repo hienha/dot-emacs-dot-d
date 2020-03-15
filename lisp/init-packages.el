@@ -22,6 +22,7 @@
 			   web-mode
 			   js2-refactor
 			   expand-region
+			   iedit
 			   ) "Default packages")
 (setq package-selected-packages vincent/packages)
 
