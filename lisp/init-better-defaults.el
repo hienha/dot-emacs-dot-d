@@ -21,6 +21,7 @@
 	(t (save-excursion
 	     (ignore-errors (backward-up-list))
 	     (funcall fn)))))
+
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 ;; recentf-mode
