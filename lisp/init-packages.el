@@ -56,6 +56,8 @@
 (setq enable-recursive-minibuffers t)
 
 (smartparens-global-mode t)
+;; In Emacs-Lusp mode, Only one single quote appears
+(sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
 
 ;; Configure js2-mode for js files.
 (setq auto-mode-alist
