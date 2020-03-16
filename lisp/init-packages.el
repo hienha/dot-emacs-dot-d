@@ -23,6 +23,9 @@
 			   js2-refactor
 			   expand-region
 			   iedit
+			   org-pomodoro
+			   helm-ag
+			   flycheck
 			   ) "Default packages")
 (setq package-selected-packages vincent/packages)
 
@@ -87,5 +90,11 @@
 
 ;; expand-region
 (require 'expand-region)
+
+;; org pomodopo
+(require 'org-pomodoro)
+
+;; Flycheck mode only in js2mode
+(add-hook 'js2-mode-hook 'flycheck-mode)
 
 (provide 'init-packages)

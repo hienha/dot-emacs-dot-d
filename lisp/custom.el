@@ -7,6 +7,7 @@
  '(company-minimum-prefix-length 1)
  '(exec-path-from-shell-arguments (quote ("-l")))
  '(exec-path-from-shell-check-startup-files nil)
+ '(org-pomodoro-long-break-length 30)
  '(package-selected-packages (quote (company)))
  '(popwin:popup-window-position (quote right))
  '(popwin:popup-window-width 80))

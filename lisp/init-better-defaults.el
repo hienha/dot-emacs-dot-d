@@ -88,5 +88,7 @@
 ;; allow you to jump to current directory with dired mode
 (require 'dired-x)
 
-(provide 'init-better-defaults)
+;; Settings default fncoding
+(set-language-environment "UTF-8")
 
+(provide 'init-better-defaults)
