@@ -26,6 +26,7 @@
 			   org-pomodoro
 			   helm-ag
 			   flycheck
+			   auto-yasnippet
 			   ) "Default packages")
 (setq package-selected-packages vincent/packages)
 
@@ -65,6 +66,7 @@
 (smartparens-global-mode t)
 ;; In Emacs-Lusp mode, Only one single quote appears
 (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
+(sp-local-pair 'lisp-interaction-mode "'" nil :actions nil)
 
 ;; Configure js2-mode for js files.
 (setq auto-mode-alist
@@ -96,5 +98,10 @@
 
 ;; Flycheck mode only in js2mode
 (add-hook 'js2-mode-hook 'flycheck-mode)
+
+;; snippet
+(require 'yasnippet)
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
 
 (provide 'init-packages)
