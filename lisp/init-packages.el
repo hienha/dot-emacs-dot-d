@@ -27,6 +27,8 @@
 			   helm-ag
 			   flycheck
 			   auto-yasnippet
+			   base16-theme
+			   snazzy-theme
 			   ) "Default packages")
 (setq package-selected-packages vincent/packages)
 

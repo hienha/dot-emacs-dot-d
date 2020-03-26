@@ -4,7 +4,8 @@
 
 (scroll-bar-mode 0)
 
-(load-theme 'dracula t)
+;; (load-theme 'dracula t)
+(load-theme 'snazzy t)
 
 (setq inhibit-splash-screen t)
 (setq-default cursor-type 'bar)
