@@ -29,6 +29,11 @@
 			   auto-yasnippet
 			   base16-theme
 			   snazzy-theme
+			   colemak-evil
+			   evil-colemak-basics
+			   evil
+			   evil-leader
+			   powerline
 			   ) "Default packages")
 (setq package-selected-packages vincent/packages)
 
@@ -105,5 +110,44 @@
 (require 'yasnippet)
 (yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
+
+;; colemak-evilZ
+;; (require 'colemak-evil)
+
+;; Evil mode
+(evil-mode t)
+(setcdr evil-insert-state-map nil)
+(define-key evil-insert-state-map [escape] 'evil-normal-state)
+
+;; evil-colemak-basics -- (comfortable for me)
+(require 'evil-colemak-basics)
+(global-evil-colemak-basics-mode)
+
+(global-evil-leader-mode)
+
+;; window-numbering
+(window-numbering-mode t)
+
+(evil-leader/set-key
+  "ff" 'find-file
+  "fr" 'recentf-open-files
+  "bb" 'switch-to-buffer
+  "kb" 'kill-buffer-and-window
+  "pf" 'counsel-git
+  "ps" 'helm-do-ag-project-root
+  "o" 'other-window
+  ;; window-numbering configuration
+  "0" 'select-window-0
+  "1" 'select-window-1
+  "2" 'select-window-2
+  "3" 'select-window-3
+  "4" 'select-window-4
+  "sr" 'split-window-right
+  "sb" 'split-window-below
+  ";" 'counsel-M-x)
+
+;; powerline
+(require 'powerline)
+(powerline-default-theme)
 
 (provide 'init-packages)

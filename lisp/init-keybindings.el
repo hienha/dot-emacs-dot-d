@@ -66,9 +66,12 @@
   (define-key company-active-map (kbd "M-n") nil)
   (define-key company-active-map (kbd "M-p") nil)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
-  (define-key company-active-map (kbd "C-p") #'company-select-previous))
+  (define-key company-active-map (kbd "C-p") #'company-select-next-previous-previous))
 
 (global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
+
+;; Use C-w to backward deleti a word
+(global-set-key (kbd "C-w") 'backward-kill-word)
 
 (provide 'init-keybindings)
 
