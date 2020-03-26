@@ -33,7 +33,6 @@
 			   evil-colemak-basics
 			   evil
 			   evil-leader
-			   powerline
 			   ) "Default packages")
 (setq package-selected-packages vincent/packages)
 
@@ -145,9 +144,5 @@
   "sr" 'split-window-right
   "sb" 'split-window-below
   ";" 'counsel-M-x)
-
-;; powerline
-(require 'powerline)
-(powerline-default-theme)
 
 (provide 'init-packages)

@@ -12,7 +12,7 @@
  '(org-pomodoro-long-break-length 30)
  '(package-selected-packages
    (quote
-    (evil-colemak-basics colemak-evil powerline window-numbering evil-leader evil company)))
+    (use-package evil-surround evil-colemak-basics colemak-evil powerline window-numbering evil-leader evil company)))
  '(popwin:popup-window-position (quote right))
  '(popwin:popup-window-width 80))
 
