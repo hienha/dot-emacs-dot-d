@@ -14,7 +14,8 @@
    (quote
     (which-key evil-nerd-commenter use-package evil-surround evil-colemak-basics colemak-evil powerline window-numbering evil-leader evil company)))
  '(popwin:popup-window-position (quote right))
- '(popwin:popup-window-width 80))
+ '(popwin:popup-window-width 80)
+ '(which-key-frame-max-height 60))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

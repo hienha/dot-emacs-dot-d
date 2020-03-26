@@ -128,24 +128,6 @@
 ;; window-numbering
 (window-numbering-mode t)
 
-(evil-leader/set-key
-  "ff" 'find-file
-  "fr" 'recentf-open-files
-  "bb" 'switch-to-buffer
-  "kb" 'kill-buffer-and-window
-  "pf" 'counsel-git
-  "ps" 'helm-do-ag-project-root
-  "o" 'other-window
-  ;; window-numbering configuration
-  "0" 'select-window-0
-  "1" 'select-window-1
-  "2" 'select-window-2
-  "3" 'select-window-3
-  "4" 'select-window-4
-  "sr" 'split-window-right
-  "sb" 'split-window-below
-  ";" 'counsel-M-x)
-
 ;; evil-surround
 (use-package evil-surround
   :ensure t
@@ -155,25 +137,14 @@
 ;; evilnc-default-hotkeys
 (evilnc-default-hotkeys)
 
-;; Emacs key bindings
-(global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines)
-(global-set-key (kbd "C-c l") 'evilnc-quick-comment-or-uncomment-to-the-line)
-(global-set-key (kbd "C-c c") 'evilnc-copy-and-comment-lines)
-(global-set-key (kbd "C-c p") 'evilnc-comment-or-uncomment-paragraphs)
-
-;; Vim key bindings
-(require 'evil-leader)
-(global-evil-leader-mode)
-(evil-leader/set-key
-  ";" 'evilnc-comment-or-uncomment-lines
-  "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
-  "ll" 'evilnc-quick-comment-or-uncomment-to-the-line
-  "cc" 'evilnc-copy-and-comment-lines
-  "cp" 'evilnc-comment-or-uncomment-paragraphs
-  "cr" 'comment-or-uncomment-region
-  "cv" 'evilnc-toggle-invert-comment-line-by-line
-  "."  'evilnc-copy-and-comment-operator
-  "\\" 'evilnc-comment-operator ; if you prefer backslash key
-)
+;; which-key
+;; Allow C-h to trigger which-key before it is done automatically
+(setq which-key-show-early-on-C-h t)
+;; make sure which-key doesn't show normally but refreshes quickly after it is
+;; triggered.
+;; (setq which-key-idle-delay 10000)
+(setq which-key-idle-secondary-delay 0.05)
+(which-key-mode)
+(which-key-setup-side-window-bottom)
 
 (provide 'init-packages)

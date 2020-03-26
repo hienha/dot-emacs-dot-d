@@ -27,7 +27,7 @@
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
 ;; use counsel-git
-(global-set-key (kbd "C-c p f") 'counsel-git)
+;; (global-set-key (kbd "C-c p f") 'counsel-git)
 
 
 ;; insent region or buffer
@@ -68,10 +68,57 @@
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-next-previous-previous))
 
-(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
+;; (global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
 
 ;; Use C-w to backward deleti a word
 (global-set-key (kbd "C-w") 'backward-kill-word)
+
+;; === 
+;; === evil-leader
+;; === 
+(evil-leader/set-key
+  "ff" 'find-file
+  "fr" 'recentf-open-files
+  "bb" 'switch-to-buffer
+  "kb" 'kill-buffer-and-window
+  "pf" 'counsel-git
+  "ps" 'helm-do-ag-project-root
+  "o" 'other-window
+  ;; window-numbering configuration
+  "0" 'select-window-0
+  "1" 'select-window-1
+  "2" 'select-window-2
+  "3" 'select-window-3
+  "4" 'select-window-4
+  "sr" 'split-window-right
+  "sb" 'split-window-below
+  ";" 'counsel-M-x)
+
+;; === 
+;; === evil-nerd-commenter
+;; === Emacs key bindings
+;; === 
+(global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines)
+(global-set-key (kbd "C-c l") 'evilnc-quick-comment-or-uncomment-to-the-line)
+(global-set-key (kbd "C-c c") 'evilnc-copy-and-comment-lines)
+(global-set-key (kbd "C-c p") 'evilnc-comment-or-uncomment-paragraphs)
+
+;; === 
+;; === Vim key bindings
+;; === 
+(require 'evil-leader)
+(global-evil-leader-mode)
+(evil-leader/set-key
+  ";" 'evilnc-comment-or-uncomment-lines
+  "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
+  "ll" 'evilnc-quick-comment-or-uncomment-to-the-line
+  "cc" 'evilnc-copy-and-comment-lines
+  "cp" 'evilnc-comment-or-uncomment-paragraphs
+  "cr" 'comment-or-uncomment-region
+  "cv" 'evilnc-toggle-invert-comment-line-by-line
+  "."  'evilnc-copy-and-comment-operator
+  "\\" 'evilnc-comment-operator ; if you prefer backslash key
+)
 
 (provide 'init-keybindings)
 
