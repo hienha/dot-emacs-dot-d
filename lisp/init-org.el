@@ -8,9 +8,9 @@
   ;; use org-capture to take notes
   (setq org-capture-templates
 	'(("t" "Todo" entry (file+headline "~/Documents/tasks/org/gtd.org" "工作安排与进展")
-	   "* TODO [#B] %?\n %i\n"
-	   :empty-lines 1))))
-
+	   "* TODO [#B] %?\n %i\n" :empty-lines 1)
+	  ("j" "Journal" entry (file+datetree "~/Documents/tasks/org/journal.org")
+	   "* %?\nEntered on %U\n  %i\n  %a"))))
 
 (provide 'init-org)
 
