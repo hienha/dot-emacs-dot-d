@@ -33,6 +33,8 @@
 			   evil-colemak-basics
 			   evil
 			   evil-leader
+			   evil-surround
+			   evil-nerd-commenter
 			   ) "Default packages")
 (setq package-selected-packages vincent/packages)
 
@@ -122,8 +124,6 @@
 (require 'evil-colemak-basics)
 (global-evil-colemak-basics-mode)
 
-(global-evil-leader-mode)
-
 ;; window-numbering
 (window-numbering-mode t)
 
@@ -144,5 +144,35 @@
   "sr" 'split-window-right
   "sb" 'split-window-below
   ";" 'counsel-M-x)
+
+;; evil-surround
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
+
+;; evilnc-default-hotkeys
+(evilnc-default-hotkeys)
+
+;; Emacs key bindings
+(global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines)
+(global-set-key (kbd "C-c l") 'evilnc-quick-comment-or-uncomment-to-the-line)
+(global-set-key (kbd "C-c c") 'evilnc-copy-and-comment-lines)
+(global-set-key (kbd "C-c p") 'evilnc-comment-or-uncomment-paragraphs)
+
+;; Vim key bindings
+(require 'evil-leader)
+(global-evil-leader-mode)
+(evil-leader/set-key
+  ";" 'evilnc-comment-or-uncomment-lines
+  "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
+  "ll" 'evilnc-quick-comment-or-uncomment-to-the-line
+  "cc" 'evilnc-copy-and-comment-lines
+  "cp" 'evilnc-comment-or-uncomment-paragraphs
+  "cr" 'comment-or-uncomment-region
+  "cv" 'evilnc-toggle-invert-comment-line-by-line
+  "."  'evilnc-copy-and-comment-operator
+  "\\" 'evilnc-comment-operator ; if you prefer backslash key
+)
 
 (provide 'init-packages)
