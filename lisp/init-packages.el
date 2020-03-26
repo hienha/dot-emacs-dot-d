@@ -35,6 +35,7 @@
 			   evil-leader
 			   evil-surround
 			   evil-nerd-commenter
+			   which-key
 			   ) "Default packages")
 (setq package-selected-packages vincent/packages)
 
