@@ -1,5 +1,5 @@
-(source "gnu-tuna" "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-(source "melpa-tuna" "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+(source "gnu"   "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+(source "melpa" "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
 
 (depends-on "2048-game")
 (depends-on "abc-mode")
