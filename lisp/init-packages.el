@@ -1,56 +1,5 @@
 (require 'cl)
 
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (setq package-archives '(("gnu-tuna"    .  "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-			   ("melpa-tuna"  .  "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))))
-
-;; add whatever package you want here
-(defvar vincent/packages '(
-			   company
-			   dracula-theme
-			   monokai-theme
-			   hungry-delete
-			   counsel
-			   swiper
-			   smartparens
-			   exec-path-from-shell
-			   js2-mode
-			   nodejs-repl
-			   popwin
-			   reveal-in-osx-finder
-			   web-mode
-			   js2-refactor
-			   expand-region
-			   iedit
-			   org-pomodoro
-			   helm-ag
-			   flycheck
-			   auto-yasnippet
-			   base16-theme
-			   snazzy-theme
-			   colemak-evil
-			   evil-colemak-basics
-			   evil
-			   evil-leader
-			   evil-surround
-			   evil-nerd-commenter
-			   which-key
-			   ) "Default packages")
-(setq package-selected-packages vincent/packages)
-
-(defun vincent/packages-installed-p ()
-  (loop for pkg in vincent/packages
-	when (not (package-installed-p pkg)) do (return nil)
-	finally (return t)))
-
-(unless (vincent/packages-installed-p)
-  (message "%s" "Refreshing package database...")
-  (package-refresh-contents)
-  (dolist (pkg vincent/packages)
-    (when (not (package-installed-p pkg))
-      (package-install pkg))))
-
 ;;;;;;;;; customize settings ;;;;;;;
 ;; if your OS is MacOXX, you need add below settings.
 (when (memq window-system '(mac ns))
