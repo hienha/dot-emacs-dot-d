@@ -94,4 +94,7 @@
 ;; Settings default fncoding
 (set-language-environment "UTF-8")
 
+;; only appearence one back quote
+(sp-local-pair 'emacs-lisp-mode "`" nil :actions nil)
+
 (provide 'init-better-defaults)
