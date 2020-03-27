@@ -14,7 +14,10 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
-;; show smarter parentheses
+;; ===
+;; === show smarter parentheses
+;; === `define-advice` only apply on emacs v25 version
+;; ===
 (define-advice show-paren-function (:around (fn) fix-show-paren-function)
   "Highlight enclosing parens."
   (cond ((looking-at-p "\\s(") (funcall fn))

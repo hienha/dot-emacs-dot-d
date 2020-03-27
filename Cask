@@ -3,6 +3,7 @@
 
 (depends-on "2048-game")
 (depends-on "abc-mode")
+(depends-on "advice-patch")
 (depends-on "alert")
 (depends-on "ansi")
 (depends-on "async")
