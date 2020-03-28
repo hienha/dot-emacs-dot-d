@@ -3,8 +3,9 @@
 ;;;;;;;;; customize settings ;;;;;;;
 ;; if your OS is MacOXX, you need add below settings.
 (use-package exec-path-from-shell
-  :ensure t
   :if (and (eq system-type 'darwin) (display-graphic-p))
+  :ensure t
+  :pin melpa-stable
   :config
   (progn
     (when (string-match-p "/zsh$" (getenv "SHELL"))
@@ -17,6 +18,10 @@
   )
 
 (global-company-mode t)
+
+(add-hook 'python-mode-hook
+	  (lambda()
+	    (set (make-local-variable 'company-backends) '((company-anaconda company-dabbrev-code) company-dabbrev))))
 
 ;; Popwin mode
 (require 'popwin)
