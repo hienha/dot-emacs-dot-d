@@ -15,7 +15,7 @@
 (depends-on "company")
 (depends-on "counsel")
 (depends-on "dash")
-(depends-on "dracula-theme")
+(depends-on "dracula-theme" :git "https://github.com/dracula/emacs/" :ref "d145ed5")
 (depends-on "epl")
 (depends-on "evil")
 (depends-on "evil-colemak-basics")
